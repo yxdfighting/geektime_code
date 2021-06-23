@@ -1,7 +1,7 @@
 package week1
 
 /*
-	连续序列问题考虑前缀和
+	连续序列问题首先考虑前缀和
 */
 
 func maxSubArray(nums []int) int {
