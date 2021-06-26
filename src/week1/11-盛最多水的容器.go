@@ -5,30 +5,29 @@ package week1
    固定左边容器，依次从右边去找，如果r大于l的盛水量，此时已经达到其最大值
    接着移动l
 */
+
 func maxArea(height []int) int {
-	var result int
+	i, j := 0, len(height)-1
+	res := 0
 
-	for i := 0; i < len(height); i++ {
-		result = max(findMaxOne(height, i), result)
-		// fmt.Printf("i:%v,result:%v\n",i,result)
-	}
-
-	return result
-}
-
-//找到某个i固定时的最大值
-func findMaxOne(height []int, i int) int {
-	var area int
-	for j := len(height) - 1; j > 0; j-- {
-		if height[j] >= height[i] {
-			area = max(height[i]*(j-i), area)
-			// fmt.Printf("j:%v\n",j)
-			break
-		} else {
-			area = max(height[j]*(j-i), area)
+	for i < j {
+		// fmt.Printf("i,j:%v,%v\n",i,j)
+		res = max(min(height[i], height[j])*(j-i), res)
+		if height[i] == height[j] {
+			i++
+			j--
+			continue
+		}
+		if height[i] > height[j] {
+			j--
+			continue
+		}
+		if height[i] < height[j] {
+			i++
+			continue
 		}
 	}
-	return area
+	return res
 }
 
 func max(i, j int) int {
@@ -36,5 +35,13 @@ func max(i, j int) int {
 		return i
 	} else {
 		return j
+	}
+}
+
+func min(i, j int) int {
+	if i > j {
+		return j
+	} else {
+		return i
 	}
 }
