@@ -1,4 +1,4 @@
-package week2
+package homework
 
 import "fmt"
 
