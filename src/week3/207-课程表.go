@@ -2,6 +2,7 @@ package week3
 
 /*
 	构建一个有向图，每一个元素后者指向前者
+	1、思考一个问题？这个题并没有定义visit数组
 */
 
 var edges [][]int
