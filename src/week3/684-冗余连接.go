@@ -53,6 +53,7 @@ func dfs(x int, father int) {
 		visit[edge] = true
 		dfs(edge, x)
 	}
+	//递归完一定要还原现场
 	visit[x] = false
 	return
 }
