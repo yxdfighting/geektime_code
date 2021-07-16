@@ -47,7 +47,6 @@ func putQueen(col, n int) {
 //判断在某个点能否放置皇后
 func judgeValid(now []string, col, row int) bool {
 	var resultJudge [][]int
-
 	//将now中的Q位置坐标提取出来，放入一个二维数组
 	for idx := 0; idx < len(now); idx++ {
 		for j := 0; j < len(now[0]); j++ {
@@ -60,12 +59,10 @@ func judgeValid(now []string, col, row int) bool {
 		}
 	}
 
-	// fmt.Printf("now:%v,resultJudge:%v,col:%v,row:%v\n",now,resultJudge,col,row)
 	for _, res := range resultJudge {
 		if res[0] == col || res[1] == row {
 			return false
 		}
-
 		if res[0]+res[1] == col+row || res[0]-res[1] == col-row {
 			return false
 		}
