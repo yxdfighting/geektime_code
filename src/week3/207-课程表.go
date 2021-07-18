@@ -33,8 +33,6 @@ func canFinish(numCourses int, prerequisites [][]int) bool {
 
 func bfs() int {
 	var queue []int
-	//表示零度点的数量
-	length := 0
 	//先从入度为0的节点开始
 	for x, d := range dig {
 		if d == 0 {
@@ -46,7 +44,7 @@ func bfs() int {
 		//队首出队
 		head := queue[0]
 		queue = queue[1:]
-		length++
+		maxLength[head]++
 		for _, child := range edges[head] {
 			dig[child] = dig[child] - 1
 			if dig[child] == 0 {
