@@ -2,7 +2,7 @@ package week4
 
 /*
 	三分查找极值
-    考虑场景，峰值元素是指大于左右相邻值的元素
+    考虑场景，峰值元素是指大于左右相邻值的元素，所以后面l,r = lmid + 1,rmid - 1
 */
 func findPeakElement(nums []int) int {
 	l, r := 0, len(nums)-1
