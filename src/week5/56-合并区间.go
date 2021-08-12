@@ -1,5 +1,7 @@
 package week5
 
+import "math/rand"
+
 func merge(intervals [][]int) [][]int {
 	if len(intervals) <= 1 {
 		return intervals
